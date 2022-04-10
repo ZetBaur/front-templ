@@ -1,23 +1,12 @@
 <template>
-    <div class="form">
-        <DxTreeView
-            id="simple-treeview"
-            :items="menuItems"
-            :width="300"
-            @item-click="selectItem"
-        />
-        <div v-if="currentItem.price" id="product-details">
-            <img :src="currentItem.image" />
-            <div class="name">{{ currentItem.text }}</div>
-            <div class="price">{{ "$" + currentItem.price }}</div>
-        </div>
+    <div class="menu-form">
+        <DxTreeView :items="menuItems" :width="200" @item-click="selectItem" />
     </div>
 </template>
 <script>
+import { ref } from "vue";
 import DxTreeView from "devextreme-vue/tree-view";
-
 import service from "@/data/app-navigation";
-import { ref } from "@vue/reactivity";
 
 export default {
     components: {
@@ -29,48 +18,26 @@ export default {
         const currentItem = ref(menuItems[0]);
 
         const selectItem = (e) => {
-            console.log(e);
             currentItem.value = e.itemData;
+            console.log(currentItem.value);
         };
 
-        return { menuItems, currentItem, selectItem };
+        return {
+            menuItems,
+            currentItem,
+            selectItem,
+        };
     },
 };
 </script>
-<style scoped>
-#simple-treeview,
-#product-details {
-    display: inline-block;
+<style lang='scss'>
+.menu-form {
+    width: 200px;
+    height: 100%;
+    background: lightgray;
+    padding-top: 16px;
 }
-
-#product-details {
-    vertical-align: top;
-    width: 400px;
-    height: 420px;
-    margin-left: 20px;
-}
-
-#product-details > img {
-    border: none;
-    height: 300px;
-    width: 400px;
-}
-
-#product-details > .name {
-    text-align: center;
-    font-size: 20px;
-}
-
-#product-details > .price {
-    text-align: center;
-    font-size: 24px;
-}
-
-.dark #product-details > div {
-    color: #f0f0f0;
-}
-
-.hidden {
-    visibility: hidden;
+.open-menu {
+    left: 0;
 }
 </style>

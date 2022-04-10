@@ -6,7 +6,6 @@ const menuItems = [
       {
         text: "Video Players"
       },
-
       {
         text: "Projectors"
       }
@@ -14,12 +13,11 @@ const menuItems = [
   },
   {
     text: "Home",
-    expanded: false,
+    expanded: true,
     items: [
       {
         text: "Video Players"
       },
-
       {
         text: "Projectors"
       }
