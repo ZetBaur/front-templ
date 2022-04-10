@@ -1,17 +1,14 @@
 <template>
-    <div>
-        <!-- <the-sidebar /> -->
-        <div class="container with-nav">
-            <router-view />
-        </div>
-    </div>
+    <SideMenu />
+    <router-view />
 </template>
 
 <script>
-// import TheSidebar from "../components/TheSidebar";
-
+import SideMenu from "@/components/side-menu.vue";
 export default {
-    // components: { TheSidebar },
+    components: { SideMenu },
 };
 </script>
 
+<style>
+</style>

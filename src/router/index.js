@@ -9,8 +9,8 @@ const routes = [
     name: "home",
     component: HomeView,
     meta: {
-      layout: "auth",
-      auth: true
+      layout: "main",
+      auth: false
     }
   },
   {
