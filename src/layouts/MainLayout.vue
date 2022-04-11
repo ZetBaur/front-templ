@@ -30,21 +30,16 @@ export default {
         const closeMenu = () => {
             console.log("closeMenu");
 
-            // showMenu.value = false;
+            showMenu.value = false;
             menuWrapper.value.classList.remove("show-menu");
             menuBackdrop.value.classList.remove("show-backdrop");
         };
 
         const toggleMenu = () => {
-            // showMenu.value = !showMenu.value;
+            showMenu.value = !showMenu.value;
             menuWrapper.value.classList.toggle("show-menu");
             menuBackdrop.value.classList.toggle("show-backdrop");
         };
-
-        // const menuLinkClick = (e) => {
-        //     console.log("menuLinkClick", e);
-        //     // closeMenu.value();
-        // };
 
         return {
             showMenu,

@@ -1,6 +1,6 @@
 const menuItems = [
   {
-    text: "Super Mart of the West",
+    text: "Page-one",
     expanded: true,
     items: [
       {
@@ -12,7 +12,19 @@ const menuItems = [
     ]
   },
   {
-    text: "Home",
+    text: "Page-three",
+    expanded: true,
+    items: [
+      {
+        text: "Video Players"
+      },
+      {
+        text: "Projectors"
+      }
+    ]
+  },
+  {
+    text: "Page-two",
     expanded: true,
     items: [
       {
