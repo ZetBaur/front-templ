@@ -1,7 +1,11 @@
 <template>
-    <div class="menu-form">
-        <DxTreeView :items="menuItems" :width="200" @item-click="selectItem" />
-    </div>
+    <DxTreeView
+        :items="menuItems"
+        :width="250"
+        @item-click="selectItem"
+        @menuLinkClick="$emit('menuLinkClick', e)"
+        class="menu-form"
+    />
 </template>
 <script>
 import { ref } from "vue";
@@ -9,17 +13,19 @@ import DxTreeView from "devextreme-vue/tree-view";
 import service from "@/data/app-navigation";
 
 export default {
+    emits: ["menuLinkClick"],
     components: {
         DxTreeView,
     },
 
-    setup() {
+    setup(_, { emit }) {
         const menuItems = service.getMenuItems();
         const currentItem = ref(menuItems[0]);
 
         const selectItem = (e) => {
             currentItem.value = e.itemData;
             console.log(currentItem.value);
+            emit("menuLinkClick", e);
         };
 
         return {
@@ -30,14 +36,12 @@ export default {
     },
 };
 </script>
+
 <style lang='scss'>
 .menu-form {
-    width: 200px;
+    width: 100%;
     height: 100%;
-    background: lightgray;
+    background: var(--color-one);
     padding-top: 16px;
-}
-.open-menu {
-    left: 0;
 }
 </style>
