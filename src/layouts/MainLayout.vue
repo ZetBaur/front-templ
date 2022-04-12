@@ -12,12 +12,10 @@
 <script>
 import { ref } from "vue";
 import SideMenu from "@/components/side-menu.vue";
-// import { useRouter } from "vue-router";
 export default {
     components: { SideMenu },
 
     setup() {
-        // const router = useRouter;
         const showMenu = ref(null);
         const menuWrapper = ref(null);
         const menuBackdrop = ref(null);
@@ -28,8 +26,6 @@ export default {
         };
 
         const closeMenu = () => {
-            console.log("closeMenu");
-
             showMenu.value = false;
             menuWrapper.value.classList.remove("show-menu");
             menuBackdrop.value.classList.remove("show-backdrop");

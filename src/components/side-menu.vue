@@ -1,32 +1,44 @@
 <template>
     <ul class="menu">
-        <li class="item" v-for="item in menuItems" :key="item">
+        <li
+            class="item"
+            v-for="item in menuItems"
+            :key="item"
+            @click.self="toggleSubMenuItems($event)"
+        >
             {{ item.text }}
             <ul class="submenu">
-                <li class="sumitem" v-for="el in item.items" :key="el">
+                <li class="subitem" v-for="el in item.items" :key="el">
                     {{ el.text }}
                 </li>
             </ul>
         </li>
     </ul>
 </template>
+
 <script>
 import { ref } from "vue";
 import service from "@/data/app-navigation";
 
 export default {
-    emits: ["menuLinkClick"],
     components: {},
 
     setup() {
         const menuItems = service.getMenuItems();
         const currentItem = ref(menuItems[0]);
 
-        console.log(menuItems);
+        const toggleSubMenuItems = (e) => {
+            if (e.target.children[0].style.display === "none") {
+                e.target.children[0].style.display = "block";
+            } else {
+                e.target.children[0].style.display = "none";
+            }
+        };
 
         return {
             menuItems,
             currentItem,
+            toggleSubMenuItems,
         };
     },
 };
@@ -34,8 +46,10 @@ export default {
 
 <style lang='scss'>
 .menu {
-    & + li {
-        color: blue;
+    font-size: 22px;
+
+    .submenu {
+        margin-left: 24px;
     }
 }
 // .menu-form {

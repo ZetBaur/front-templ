@@ -4,10 +4,16 @@ const menuItems = [
     expanded: true,
     items: [
       {
-        text: "Video Players"
+        text: "subpage-one"
       },
       {
-        text: "Projectors"
+        text: "subpage-two"
+      },
+      {
+        text: "subpage-three"
+      },
+      {
+        text: "subpage-four"
       }
     ]
   },
