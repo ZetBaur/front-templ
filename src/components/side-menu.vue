@@ -21,8 +21,6 @@ import { ref } from "vue";
 import service from "@/data/app-navigation";
 
 export default {
-    components: {},
-
     setup() {
         const menuItems = service.getMenuItems();
         const currentItem = ref(menuItems[0]);
@@ -52,10 +50,4 @@ export default {
         margin-left: 24px;
     }
 }
-// .menu-form {
-//     width: 100%;
-//     height: 100%;
-//     background: var(--color-one);
-//     padding-top: 16px;
-// }
 </style>
