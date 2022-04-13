@@ -1,24 +1,28 @@
 const menuItems = [
   {
     text: "About",
-    route: "/about"
+    route: "/"
   },
 
   {
     text: "Page-one",
-    expanded: true,
+
     items: [
       {
-        text: "subpage-one"
+        text: "subpage-one",
+        route: "/about"
       },
       {
-        text: "subpage-two"
+        text: "subpage-two",
+        route: "/about"
       },
       {
-        text: "subpage-three"
+        text: "subpage-three",
+        route: "/about"
       },
       {
-        text: "subpage-four"
+        text: "subpage-four",
+        route: "/about"
       }
     ]
   },

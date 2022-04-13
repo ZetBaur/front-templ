@@ -12,7 +12,7 @@
                     class="subitem"
                     v-for="el in item.items"
                     :key="el"
-                    @click="linkClick($event, 'second')"
+                    @click="linkClick($event, 'second', item)"
                 >
                     {{ el.text }}
                 </li>
@@ -22,11 +22,13 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 import service from "@/data/app-navigation";
 
 export default {
     setup() {
+        const router = useRouter();
         const menuItems = service.getMenuItems();
         const currentItem = ref(menuItems[0]);
 
@@ -41,22 +43,15 @@ export default {
                     e.target.children[0].style.display = "none";
                 }
             }
-        };
 
-        // const toggleSubMenuItems = (e, t) => {
-        //     console.log(e.target.children);
-        //     console.log(t);
-        //     if (e.target.children[0].style.display === "none") {
-        //         e.target.children[0].style.display = "block";
-        //     } else {
-        //         e.target.children[0].style.display = "none";
-        //     }
-        // };
+            if (item.route) {
+                router.push(item.route);
+            }
+        };
 
         return {
             menuItems,
             currentItem,
-            // toggleSubMenuItems,
             linkClick,
         };
     },
