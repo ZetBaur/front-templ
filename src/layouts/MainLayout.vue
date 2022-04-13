@@ -1,6 +1,7 @@
 <template>
-    <button @click="toggleMenu">Menu</button>
     <div class="main-wrapper">
+        <!-- <button @click="toggleMenu">Menu</button> -->
+
         <div ref="menuBackdrop" class="menu-backdrop" @click="closeMenu"></div>
         <div ref="menuWrapper" class="menu-wrapper" @click="openMenu">
             <SideMenu />
@@ -51,14 +52,19 @@ export default {
 
 <style lang='scss'>
 .main-wrapper {
-    position: relative;
-    height: 100vh;
+    // position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 32px 16px 16px 80px;
 
     .menu-backdrop {
-        position: absolute;
+        position: fixed;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
         transform: scale(0);
+        z-index: 90;
     }
 
     .show-backdrop {

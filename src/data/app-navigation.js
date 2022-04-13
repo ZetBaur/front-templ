@@ -1,5 +1,10 @@
 const menuItems = [
   {
+    text: "About",
+    route: "/about"
+  },
+
+  {
     text: "Page-one",
     expanded: true,
     items: [
@@ -17,6 +22,7 @@ const menuItems = [
       }
     ]
   },
+
   {
     text: "Page-three",
     expanded: true,
@@ -29,6 +35,7 @@ const menuItems = [
       }
     ]
   },
+
   {
     text: "Page-two",
     expanded: true,

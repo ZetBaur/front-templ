@@ -19,7 +19,7 @@ const routes = [
 
     component: () => import("../views/AboutView.vue"),
     meta: {
-      layout: "auth",
+      layout: "main",
       auth: true
     }
   }

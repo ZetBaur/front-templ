@@ -20,3 +20,17 @@ export default {
     components: { MainLayout, AuthLayout },
 };
 </script>
+
+<style lang="scss">
+html,
+body {
+    margin: 0px;
+    min-height: 100%;
+    height: 100%;
+}
+#app {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+}
+</style>
